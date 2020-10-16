@@ -19,15 +19,10 @@ Un sistema de control de versiones debe proporcionar:
 * Un registro histórico de las acciones realizadas sobre cada archivo (y quién las hizo), normalmente pudiendo volver a un estado anterior del software.
 
 ---
-# Vocabulario
-
-Los términos usados varían entre los diferentes sistemas de control de versiones de código fuente, pero hay varios términos de uso común que se detallan a continuación.
-
----
 
 # Repositorio
 
-Es el lugar donde se almacenan los datos actualizados e históricos de cambios, a menudo en un servidor. A veces se le denomina depósito o depot.
+Es el lugar donde se almacenan los datos actualizados e históricos de cambios, a menudo en un servidor.
 
 Incluso en sistemas distribuídos como Git, se suele utilizar un repositorio "central" o "maestro" al que contribuyen todos los desarrolladores de un equipo.
 
@@ -37,7 +32,7 @@ Incluso en sistemas distribuídos como Git, se suele utilizar un repositorio "ce
 
 Es el conjunto de directorios y/o archivos dentro del repositorio que pertenecen a un proyecto común.
 
-Un proyecto de software se puede dividir en módulos (modularizar) para facilitar su desarrollo (ej: dividir las distintas tareas entre los distintos equipos) y cada módulo estar contenido dentro de un mismo repositorio para todo el proyecto.
+Un proyecto de software se puede dividir en módulos (*modularizar*) para facilitar su desarrollo (Ej. dividir las distintas tareas entre los distintos equipos) y cada módulo estar contenido dentro de un mismo repositorio para todo el proyecto.
 
 ---
 
@@ -69,7 +64,7 @@ En cualquier momento en el tiempo, un módulo puede ser bifurcado, por ejemplo p
 
 En dicho instante se tienen dos copias (ramas) que pueden evolucionar de manera independiente y eventualmente se pueden "fusionar" (*merge*) una vez que se decide implementar esa función con ese código.
 
-Es práctica común la creación de ramas para el desarrollo de funcionalidades (*feature branch*) nuevas, o para la corrección de errores (*hotfix branch*).
+Es común la creación de ramas para el desarrollo de funcionalidades nuevas (*feature branch*), para la publicación de una nueva versión del software (*release branch*), o para la corrección de errores (*hotfix branch*).
 
 ---
 
@@ -77,7 +72,7 @@ Es práctica común la creación de ramas para el desarrollo de funcionalidades 
 
 El uso de este término varía un poco de acuerdo al sistema de VCS.
 
-En los sistemas centralizados (Ej. Subversion) es realizar una copia del repositorio en la máquina local del desarrollador, y se realiza una única vez. En los sistemas distribuídos (Ej. Git) es crear una rama, o cambiar a una rama, y se realiza varias veces durante el desarrollo (a veces varias veces en el día).
+En los sistemas centralizados (Ej. Subversion) es realizar una copia del repositorio en la máquina local del desarrollador, y se realiza una única vez. En los sistemas distribuídos (Ej. Git) es crear una rama, o cambiar a una rama, y se realiza varias veces durante el desarrollo (a menudo, varias veces en el día).
 
 Se puede hacer check-out de una rama específica, de un tag específico, o (normalmente) de *HEAD*, es decir, de la versión actual.
 
@@ -105,23 +100,23 @@ Una integración o fusión une dos conjuntos de cambios sobre un archivo, o un c
 
 Los sistemas puden hacer las fusiones de manera automática, pero cuando no se puede se genera un conflicto que algún desarrollador deberá resolver de forma manual, y luego fusionar la versión resuelta.
 
-Si las ramas no evolucionan durante mucho tiempo de manera independiente de la línea de desarrollo principal (*trunk*), en general es posible fusionarlas automáticamente.
+Si las ramas no evolucionan durante mucho tiempo de manera independiente de la línea de desarrollo principal (*trunk*), en general el sistema las fusiona automáticamente.
 
 ---
 
 # Arquitecturas de Almacenamiento
 
-* *Distribuído*: cada desarrollador tiene su propio repositorio. Los distintos repositorios pueden intercambiar y mezclar revisiones entre ellos. Es común (aunque no obligatorio) el uso de un repositorio "centralizado" como punto de sincronización de los distintos repositorios locales. Ejemplos: Git y Mercurial.
+* **Distribuído**: cada desarrollador tiene su propio repositorio. Los distintos repositorios pueden intercambiar y mezclar revisiones entre ellos. Es común (aunque no obligatorio) el uso de un repositorio "centralizado" como punto de sincronización de los distintos repositorios locales. Ejemplos: Git y Mercurial.
 
-* *Centralizado*: existe un repositorio centralizado de todo el código. Las tareas administrativas son más fáciles a costa de la flexibilidad, porque todas las decisiones importantes (Ej. crear una rama nueva) las debe aprobar el responsable Ejemplos: CVS, Subversion y Team Foundation Server.
+* **Centralizado**: existe un repositorio centralizado de todo el código. Las tareas administrativas son más fáciles a costa de la flexibilidad, porque todas las decisiones importantes (Ej. crear una rama nueva) las debe aprobar el responsable. Ejemplos: CVS, Subversion y Team Foundation Server.
 
 ---
 
 # Ventajas Sistemas Distribuídos
 
 * Menor concectividad a la red para operar, aumenta la autonomía del desarrollador y la velocidad de desarrollo.
-* Los desarrolladores pueden trabajar aunque no esté disponible el repositorio remoto (si lo hubiera)
-* Como los repositorios locales son una réplica del centralizado, la información está disponible en varios lugares lo que facilita la recuperación del sistema en caso de desastre en el repositorio central. Disminuye la necesidad de backups.
+* Los desarrolladores pueden trabajar aunque no esté disponible el repositorio remoto (si lo hubiera).
+* Como los repositorios locales son una réplica del centralizado, la información está disponible en varios lugares lo que facilita la recuperación del sistema en caso de desastre en el repositorio central. Disminuye la necesidad de backups (*aunque no la elimina*).
 
 ---
 
